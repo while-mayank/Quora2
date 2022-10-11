@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%#= @profile.name %>
+  <%= title_name(@profile) %>
+</p>
+<!-- please see the profile helper -->
+<p>
+  <strong>Contact no:</strong>
+  <%= @profile.contact_no %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @profile.user_id %>
+</p>
+
+<!-- <p>
+  <strong>Avatar:</strong>
+  <%#= @profile.avatar %>
+</p> -->
+
+  <%= image_tag @profile.avatar, alt: 'avatar missing' %>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

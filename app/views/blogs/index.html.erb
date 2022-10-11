@@ -1,0 +1,16 @@
+<table>
+<tr>
+<th> Website URL</th>
+<th> User ID </th>
+<th> User Blog </th>
+<th> Created at </th>
+</tr>
+<% @blogs.each do |f| %>
+<tr>
+<td><%= f.website.url%></td>
+<td><%= f.user_id %></td>
+<td><%= f.content%></td>
+<td><%= time_in_words(f) %></td>
+</tr>
+<% end %>
+</table>

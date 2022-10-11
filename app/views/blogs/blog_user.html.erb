@@ -1,0 +1,4 @@
+<% @blogs.each do |blog|%>
+<%= blog.content%><br>
+<a href="<%= edit_blog_path(blog.id)%>">Edit Blog</a><br>
+<% end %>

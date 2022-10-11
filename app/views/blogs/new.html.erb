@@ -1,0 +1,13 @@
+<%= form_for @blog do |b| %>
+
+	<div class="field">
+	<%= b.label :content %>
+	<%= b.text_area :content %>
+	<h3>select the album</h3>
+<%=  collection_select(:blog, :website_id, Website.all , :id, :url) %><br>
+	</div>
+
+	<div>
+		<%= b.submit %>
+	</div>
+<% end %>
