@@ -12,9 +12,10 @@ Rails.application.routes.draw do
 
   # get 'websites/user/:id', to: "websites#website_user", as: "website_user"
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions', 
-  }
+  # devise_for :users, controllers: {
+  #   sessions: 'users/sessions', 
+  # }
 
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: "homes#index"
 end

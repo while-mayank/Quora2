@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles or /profiles.json
   def index
-    @profiles = Profile.all
+    @profiles = Profile.notice_visible
   end
 
   # GET /profiles/1 or /profiles/1.json
@@ -71,6 +71,6 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.require(:profile).permit(:name, :contact_no, :age, :gender, :avatar)
+      params.require(:profile).permit(:name, :contact_no, :age, :gender, :avatar, :status)
     end
 end

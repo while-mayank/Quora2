@@ -1,8 +1,11 @@
 class BlogsController < ApplicationController
+	include ActionView::Helpers::DateHelper
 	before_action :authenticate_user!
+	helper_method :time_in_words
+
 	def index
 	    if params["blogs"] == 'all_blogs'
-	      	@blogs = Blog.includes(:website).all
+	      	@blogs = Blog.includes(:website).notice_visible
 	    else
       		@blogs = current_user.blogs.includes(:website)
 	    end
@@ -48,6 +51,11 @@ class BlogsController < ApplicationController
 	private
 
 	def blog_params
-		params.require(:blog).permit(:content, :website_id)
+		params.require(:blog).permit(:content, :website_id, :status)
+	end
+
+	def time_in_words(blog)
+	 	created_time = blog.created_at
+	 	time_ago_in_words(created_time)
 	end
 end

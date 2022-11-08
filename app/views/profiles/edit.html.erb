@@ -8,5 +8,7 @@
 	<%= f.label :contact_no%>
 	<%= f.text_field :contact_no %><br>
 	<%= f.file_field :avatar %>
+	<%= f.label :status %>
+	<%= f.check_box :status, {}, true %>
 	<%= f.submit "Create" %>
 <% end %>
